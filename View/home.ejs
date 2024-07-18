@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #333;
+            background-size: 400% 400%;
+            animation: gradientAnimation 6s ease infinite;
+        }
+   
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            box-sizing: border-box;
+            max-width: 800px;
+            overflow-x: auto;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            background: -webkit-linear-gradient(#6a11cb, #2575fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .url-input {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .url-input input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius:10px 10px 10px 10px;
+            outline: none;
+            font-size: 16px;
+        }
+        .url-input button {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-left: none;
+            background-color: #6a11cb;
+            color: white;
+            cursor: pointer;
+            border-radius: 20px 20px 20px 20px;
+            outline: none;
+            font-size: 16px;
+        }
+        .url-input button:hover {
+            background-color: #2575fc;
+        }
+        table {
+            width: 100%;
+            max-width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ccc;
+            text-align: left;
+            box-sizing: border-box;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-size: 18px;
+        }
+        td {
+            font-size: 16px;
+        }
+       
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>URL Shortener</h1>
+        <% if (locals.id) { %>
+            <p>URL Generated: http://localhost:8000/url/<%= id %></p>
+            <% } %>
+
+        <div class="url-input">
+            <form method="POST" action="/url">
+            <input type="text" name="url" placeholder="https://example.com">
+            <button>Generate</button>
+        </form>
+        </div>
+        <div>
+            <% if (locals.urls) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Serial no.</th>
+                    <th>ShortId</th>
+                    <th>Redirect</th>
+                    <th>Clicks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% urls.forEach((url,index) => { %>
+                    <tr>
+                 <td><%= index+1 %></td>
+                 <td><%= url.shortId %></td>
+                 <td><%= url.redirectURL %></td>
+                 <td><%= url.VisitHistory.length %></td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        <% } %>
+    </div>
+
+</body>
+</html>

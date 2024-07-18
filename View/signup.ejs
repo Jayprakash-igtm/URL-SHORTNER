@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <!-- <style>
+        body{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+        };
+    </style> -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #333;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            background: -webkit-linear-gradient(#6a11cb, #2575fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            outline: none;
+            font-size: 16px;
+        }
+        .form-group input:focus {
+            border-color: #6a11cb;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #6a11cb;
+            color: white;
+            cursor: pointer;
+            border-radius: 20px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #2575fc;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form  method="post" action="/user">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="name" required/>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" name="email" required/>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="text" name="password" required/>
+            </div>
+            <button type="submit">SignUp</button>
+        </form>
+    </div>
+    <!-- <h1>SignUp</h1>
+    <form method="post" action="/user" >
+        <label>Full Name</label>
+        <input type="text" required name="name"/>
+        <label>Email</label>
+        <input type="text" required name="email"/>
+        <label>Password</label>
+        <input type="text" required name="password"/>
+
+        <button type="submit">SignUp</button>
+    </form> -->
+</body>
+</html>

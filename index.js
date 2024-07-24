@@ -17,7 +17,8 @@ app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-ConnectionToMongoDB('mongodb://localhost:27017/url-shortner')
+//mongodb://localhost:27017/url-shortner
+ConnectionToMongoDB('mongodb+srv://jayprakashbts2004:PY5ybu9tofKuFpwh@cluster0.egnxprp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 .then(()=> console.log("MongoDb Connected"))
 .catch((error)=> console.log("Error Occurred",error));
 
